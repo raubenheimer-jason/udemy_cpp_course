@@ -31,7 +31,7 @@ No really!!, 75 is my favorite number!
 
 int main()
 {
-    std::cout << "Enter your favorite number between 1 and 100: " << std::endl;
+    std::cout << "Enter your favorite number between 1 and 100: ";
 
     int num{0};
     std::cin >> num;
