@@ -28,6 +28,7 @@ Reuse existing functionality in libraries and in the std::string class!
 */
 
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -35,6 +36,43 @@ int main()
 {
     string alphabet{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
     string key{"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
+
+    string message{};
+
+    cout << "Enter a message to encrypt: ";
+    getline(cin, message);
+
+    // encrypt message here
+    cout << "\nEncrypting..." << endl;
+    string encrypted{};
+
+    for (auto c : message)
+    {
+        // find position of c in alphabet
+        size_t pos = alphabet.find(c);
+        if (pos == string::npos)
+            encrypted += c;
+        else
+            encrypted += key.at(pos);
+    }
+
+    cout << "Encrypted message: " << encrypted << endl;
+
+    // decrypt message here
+    cout << "\nDecrypting..." << endl;
+    string decrypted{};
+    for (auto c : encrypted)
+    {
+        // find position of c in key
+        size_t pos = key.find(c);
+        if (pos == string::npos)
+            decrypted += c;
+        else
+            decrypted += alphabet.at(pos);
+    }
+
+    cout << "Decrypted message: " << decrypted << endl;
+    cout << endl;
 
     return 0;
 }
