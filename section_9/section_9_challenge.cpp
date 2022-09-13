@@ -64,6 +64,7 @@ Good luck!
 
 #include <iostream>
 #include <vector>
+#include <numeric>
 
 using std::cin;
 using std::cout;
@@ -95,17 +96,49 @@ int main()
         case 'p':
         case 'P':
             cout << "print list" << endl;
+            cout << "[ ";
+            for (auto num : list)
+            {
+                cout << num << " ";
+            }
+            cout << "]";
+            if (list.size() == 0)
+            {
+                cout << " - the list is empty" << endl;
+            }
+            else
+            {
+                cout << endl;
+            }
             break;
 
         case 'a':
         case 'A':
-            cout << "add int" << endl;
+        {
+            cout << "Enter an int to add to the list: ";
+            int num{};
+            cin >> num;
+            list.push_back(num);
+            cout << num << " added." << endl;
             break;
+        }
 
         case 'm':
         case 'M':
+        {
             cout << "calc mean" << endl;
+            auto const count = static_cast<float>(list.size());
+            if (count == 0)
+            {
+                cout << "Unable to calculate the mean - no data" << endl;
+            }
+            else
+            {
+                float mean = std::reduce(list.begin(), list.end()) / count;
+                cout << "Mean: " << mean << endl;
+            }
             break;
+        }
 
         case 's':
         case 'S':
