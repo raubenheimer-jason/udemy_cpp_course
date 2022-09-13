@@ -65,6 +65,8 @@ Good luck!
 #include <iostream>
 #include <vector>
 #include <numeric>
+#include <algorithm> // std::min_element
+#include <iterator>  // std::begin, std::end
 
 using std::cin;
 using std::cout;
@@ -142,8 +144,29 @@ int main()
 
         case 's':
         case 'S':
-            cout << "smallest" << endl;
+        {
+            if (list.size() == 0)
+            {
+                cout << "Unable to determine the smallest number - list is empty" << endl;
+            }
+            else
+            {
+                // vector<int> smallest{std::min_element(std::begin(list), std::end(list))};
+
+                auto smallest = *std::min_element(std::begin(list), std::end(list));
+
+                // cout <<  << endl;
+                // for (auto val : smallest)
+                // int smallest{};
+                // for (std::vector<int>::iterator it = smallest.begin() ; it != smallest.end(); ++it)
+                // {
+                //     cout << it << " ";
+                // }
+                // cout << endl;
+                cout << "The smallest number is " << smallest << endl;
+            }
             break;
+        }
 
         case 'l':
         case 'L':
