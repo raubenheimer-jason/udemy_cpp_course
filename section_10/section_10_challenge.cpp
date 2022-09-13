@@ -27,8 +27,17 @@ Remember, the less code you write the less code you have to test!
 Reuse existing functionality in libraries and in the std::string class!
 */
 
-string alphabet{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-string key{"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
+#include <string>
+
+using namespace std;
+
+int main()
+{
+    string alphabet{"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+    string key{"XZNLWEBGJHQDYVTKFUOMPCIASRxznlwebgjhqdyvtkfuompciasr"};
+
+    return 0;
+}
 
 // Solution
 /*
