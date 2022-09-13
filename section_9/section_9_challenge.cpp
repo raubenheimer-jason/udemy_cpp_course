@@ -63,19 +63,23 @@ Good luck!
 */
 
 #include <iostream>
+#include <vector>
 
 using std::cin;
 using std::cout;
 using std::endl;
+using std::vector;
 
 int main()
 {
 
     char choice{};
 
+    vector<int> list{};
+
     do
     {
-
+        cout << "\n----------------------------------" << endl;
         cout << "P - Print numbers" << endl;
         cout << "A - Add a number" << endl;
         cout << "M - Display mean of the numbers" << endl;
@@ -84,6 +88,43 @@ int main()
         cout << "Q - Quit" << endl;
         cout << "Enter your choice: ";
         cin >> choice;
+        cout << endl;
+
+        switch (choice)
+        {
+        case 'p':
+        case 'P':
+            cout << "print list" << endl;
+            break;
+
+        case 'a':
+        case 'A':
+            cout << "add int" << endl;
+            break;
+
+        case 'm':
+        case 'M':
+            cout << "calc mean" << endl;
+            break;
+
+        case 's':
+        case 'S':
+            cout << "smallest" << endl;
+            break;
+
+        case 'l':
+        case 'L':
+            cout << "largest" << endl;
+            break;
+
+        case 'q':
+        case 'Q':
+            cout << "Goodbye!" << endl;
+            break;
+
+        default:
+            cout << "Invalid option, try again." << endl;
+        }
 
     } while (choice != 'q' && choice != 'Q');
 
