@@ -97,7 +97,6 @@ int main()
         {
         case 'p':
         case 'P':
-            cout << "print list" << endl;
             cout << "[ ";
             for (auto num : list)
             {
@@ -128,7 +127,6 @@ int main()
         case 'm':
         case 'M':
         {
-            cout << "calc mean" << endl;
             auto const count = static_cast<float>(list.size());
             if (count == 0)
             {
@@ -151,18 +149,7 @@ int main()
             }
             else
             {
-                // vector<int> smallest{std::min_element(std::begin(list), std::end(list))};
-
                 auto smallest = *std::min_element(std::begin(list), std::end(list));
-
-                // cout <<  << endl;
-                // for (auto val : smallest)
-                // int smallest{};
-                // for (std::vector<int>::iterator it = smallest.begin() ; it != smallest.end(); ++it)
-                // {
-                //     cout << it << " ";
-                // }
-                // cout << endl;
                 cout << "The smallest number is " << smallest << endl;
             }
             break;
@@ -170,8 +157,18 @@ int main()
 
         case 'l':
         case 'L':
-            cout << "largest" << endl;
+        {
+            if (list.size() == 0)
+            {
+                cout << "Unable to determine the largest number - list is empty" << endl;
+            }
+            else
+            {
+                auto largest = *std::max_element(std::begin(list), std::end(list));
+                cout << "The largest number is " << largest << endl;
+            }
             break;
+        }
 
         case 'q':
         case 'Q':
