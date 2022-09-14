@@ -1,4 +1,4 @@
-// video
+// video 114
 
 /*
     Recall the challenge from Section 9 below.
@@ -96,6 +96,24 @@ Good luck!
 
 using namespace std;
 
+void display_menu()
+{
+    // Display menu
+    cout << "\nP - Print numbers" << endl;
+    cout << "A - Add a number" << endl;
+    cout << "M - Display mean of the numbers" << endl;
+    cout << "S - Display the smallest number" << endl;
+    cout << "L - Display the largest number" << endl;
+    cout << "Q - Quit" << endl;
+}
+
+void get_selection(char &selection)
+{
+    cout << "\nEnter your choice: ";
+    cin >> selection;
+    selection = toupper(selection);
+}
+
 int main()
 {
 
@@ -105,14 +123,17 @@ int main()
     do
     {
         // Display menu
-        cout << "\nP - Print numbers" << endl;
-        cout << "A - Add a number" << endl;
-        cout << "M - Display mean of the numbers" << endl;
-        cout << "S - Display the smallest number" << endl;
-        cout << "L - Display the largest number" << endl;
-        cout << "Q - Quit" << endl;
-        cout << "\nEnter your choice: ";
-        cin >> selection;
+        display_menu();
+        // cout << "\nP - Print numbers" << endl;
+        // cout << "A - Add a number" << endl;
+        // cout << "M - Display mean of the numbers" << endl;
+        // cout << "S - Display the smallest number" << endl;
+        // cout << "L - Display the largest number" << endl;
+        // cout << "Q - Quit" << endl;
+        // cout << "\nEnter your choice: ";
+        // cin >> selection;
+
+        get_selection(selection);
 
         if (selection == 'P' || selection == 'p')
         {
