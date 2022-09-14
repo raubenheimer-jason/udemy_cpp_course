@@ -96,6 +96,57 @@ Good luck!
 
 using namespace std;
 
+void display_menu();
+void get_selection(char &selection);
+void print_list(const vector<int> &numbers);
+void add_to_list(vector<int> &numbers);
+double calc_mean(const vector<int> &numbers);
+void print_mean(const vector<int> &numbers);
+int get_smallest(const vector<int> &numbers);
+void print_smallest(const vector<int> &numbers);
+int get_largest(const vector<int> &numbers);
+void print_largest(const vector<int> &numbers);
+
+int main()
+{
+
+    vector<int> numbers{};
+    char selection{};
+
+    do
+    {
+        display_menu();
+        get_selection(selection);
+
+        switch (selection)
+        {
+        case 'P':
+            print_list(numbers);
+            break;
+        case 'A':
+            add_to_list(numbers);
+            break;
+        case 'M':
+            print_mean(numbers);
+            break;
+        case 'S':
+            print_smallest(numbers);
+            break;
+        case 'L':
+            print_largest(numbers);
+            break;
+        case 'Q':
+            cout << "Goodbye" << endl;
+            break;
+        default:
+            cout << "Unknown selection, please try again" << endl;
+        }
+    } while (selection != 'Q');
+
+    cout << endl;
+    return 0;
+}
+
 void display_menu()
 {
     // Display menu
@@ -184,62 +235,6 @@ void print_largest(const vector<int> &numbers)
         cout << "Unable to determine largest - list is empty" << endl;
     else
         cout << "The largest number is: " << get_largest(numbers) << endl;
-}
-
-int main()
-{
-
-    vector<int> numbers{};
-    char selection{};
-
-    do
-    {
-        display_menu();
-        get_selection(selection);
-
-        switch (selection)
-        {
-        case 'P':
-            print_list(numbers);
-            break;
-        case 'A':
-            add_to_list(numbers);
-            break;
-        case 'M':
-            print_mean(numbers);
-            break;
-        case 'S':
-            print_smallest(numbers);
-            break;
-        case 'L':
-            print_largest(numbers);
-            break;
-        case 'Q':
-            cout << "Goodbye" << endl;
-            break;
-        default:
-            cout << "Unknown selection, please try again" << endl;
-            break;
-        }
-
-        //     if (selection == 'P')
-        //         print_list(numbers);
-        //     else if (selection == 'A')
-        //         add_to_list(numbers);
-        //     else if (selection == 'M')
-        //         print_mean(numbers);
-        //     else if (selection == 'S')
-        //         print_smallest(numbers);
-        //     else if (selection == 'L')
-        //         print_largest(numbers);
-        //     else if (selection == 'Q')
-        //         cout << "Goodbye" << endl;
-        //     else
-        //         cout << "Unknown selection, please try again" << endl;
-    } while (selection != 'Q');
-
-    cout << endl;
-    return 0;
 }
 
 // Solution
