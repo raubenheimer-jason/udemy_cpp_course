@@ -88,8 +88,3 @@ int *apply_all(const int *const array1, const size_t array1_size, const int *con
 
     return new_arr;
 }
-
-// Solution
-/*
-
-*/
