@@ -1,4 +1,4 @@
-// video
+// video 132
 
 /* Write a C++ function named apply_all that expects two arrays of integers and their sizes and
   dynamically allocates a new array of integers whose size is the product of the 2 array sizes
@@ -61,10 +61,9 @@ int main()
 
     cout << "Result: ";
     print(results, results_size);
+    delete[] results;
 
     cout << endl;
-
-    delete results;
 
     return 0;
 }
@@ -72,27 +71,20 @@ int main()
 void print(const int *const array, const size_t size)
 {
     cout << "[ ";
-    for (size_t i{}; i < size; i++)
-    {
+    for (size_t i{}; i < size; ++i)
         cout << array[i] << " ";
-    }
     cout << "]" << endl;
 }
 
 int *apply_all(const int *const array1, const size_t array1_size, const int *const array2, const size_t array2_size)
 {
-    size_t new_arr_size{array1_size * array2_size};
     int *new_arr{nullptr};
-    new_arr = new int[new_arr_size];
+    new_arr = new int[array1_size * array2_size];
 
     size_t new_index{};
-    for (size_t i{}; i < array2_size; i++)
-    {
-        for (size_t j{}; j < array1_size; j++)
-        {
+    for (size_t i{}; i < array2_size; ++i)
+        for (size_t j{}; j < array1_size; ++j)
             new_arr[new_index++] = array1[j] * array2[i];
-        }
-    }
 
     return new_arr;
 }
