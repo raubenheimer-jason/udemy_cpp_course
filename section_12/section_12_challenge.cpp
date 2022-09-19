@@ -39,6 +39,9 @@
 
 using namespace std;
 
+void print(const int *const array, const size_t size);
+int *apply_all(const int *const array1, const size_t array1_size, const int *const array2, const size_t array2_size);
+
 int main()
 {
     const size_t array1_size{5};
@@ -61,7 +64,37 @@ int main()
 
     cout << endl;
 
+    delete results;
+
     return 0;
+}
+
+void print(const int *const array, const size_t size)
+{
+    cout << "[ ";
+    for (size_t i{}; i < size; i++)
+    {
+        cout << array[i] << " ";
+    }
+    cout << "]" << endl;
+}
+
+int *apply_all(const int *const array1, const size_t array1_size, const int *const array2, const size_t array2_size)
+{
+    size_t new_arr_size{array1_size * array2_size};
+    int *new_arr{nullptr};
+    new_arr = new int[new_arr_size];
+
+    size_t new_index{};
+    for (size_t i{}; i < array2_size; i++)
+    {
+        for (size_t j{}; j < array1_size; j++)
+        {
+            new_arr[new_index++] = array1[j] * array2[i];
+        }
+    }
+
+    return new_arr;
 }
 
 // Solution
