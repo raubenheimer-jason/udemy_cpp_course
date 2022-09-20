@@ -18,7 +18,7 @@ void Movie::display() const
     std::cout << name << ", " << rating << ", " << watched << std::endl;
 }
 
-// void Movie::increment_watched()
-// {
-//     ++watched;
-// }
+std::string Movie::get_name() const
+{
+    return name;
+}

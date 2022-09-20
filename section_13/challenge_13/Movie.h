@@ -24,8 +24,8 @@ public:
 
     // Public methods
     void display() const;
-    // void increment_watched();
     void increment_watched() { ++watched; }
+    std::string get_name() const;
 };
 
 #endif // _MOVIE_H_

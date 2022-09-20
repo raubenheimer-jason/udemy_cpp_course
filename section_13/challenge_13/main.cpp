@@ -29,9 +29,30 @@
 #include <iostream>
 #include "Movies.h"
 
+// function prototypes
+void add_movie(Movies &my_movies, const std::string name, const std::string rating);
+
 int main()
 {
     Movies my_movies;
 
+    my_movies.display_movies();
+
+    add_movie(my_movies, "Shrek", "PG");
+
+    add_movie(my_movies, "Shrek", "PG");
+
+    my_movies.display_movies();
+
     return 0;
+}
+
+void add_movie(Movies &my_movies, const std::string name, const std::string rating)
+{
+    std::cout << name << " ";
+    if (my_movies.add_movie(name, rating))
+        std::cout << "added." << std::endl;
+    else
+        std::cout << "already exists." << std::endl;
+    // std::cout << std::endl;
 }
