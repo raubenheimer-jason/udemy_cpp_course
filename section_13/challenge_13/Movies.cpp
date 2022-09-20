@@ -16,7 +16,6 @@ void Movies::display_movies() const
     else
         for (const auto &movie : movies_vec)
             movie.display();
-    // std::cout << "----------------------------" << std::endl;
     std::cout << std::endl;
 }
 
