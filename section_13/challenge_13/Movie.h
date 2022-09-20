@@ -17,7 +17,7 @@ public:
     Movie(std::string name, std::string rating, int watched);
 
     // Copy
-    Movie(const Movie &souce);
+    Movie(const Movie &source);
 
     // Destructor
     ~Movie();

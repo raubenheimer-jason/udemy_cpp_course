@@ -10,11 +10,17 @@
 class Movies
 {
 private:
-    std::vector<Movie> movies_vec;
+    std::vector<Movie> *movies_vec;
 
 public:
     // Constructor
     Movies();
+
+    // Copy
+    Movies(const Movies &source);
+
+    // Move
+    Movies(Movies &&source);
 
     // Destructor
     ~Movies();
