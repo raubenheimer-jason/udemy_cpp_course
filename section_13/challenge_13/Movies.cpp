@@ -28,7 +28,7 @@ bool Movies::add_movie(const std::string name, const std::string rating, const i
 
     // if we havent returned, then movie hasnt already been added
     // add movie
-    movies_vec.push_back(Movie(name, rating, watched));
+    movies_vec.push_back(Movie{name, rating, watched});
     return true;
 }
 
