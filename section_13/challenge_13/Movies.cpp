@@ -20,7 +20,7 @@ void Movies::display_movies() const
     std::cout << std::endl;
 }
 
-bool Movies::add_movie(std::string name, std::string rating)
+bool Movies::add_movie(const std::string name, const std::string rating, const int watched)
 {
     // first check if movie has already been added...
     for (const auto &movie : movies_vec)
@@ -29,6 +29,18 @@ bool Movies::add_movie(std::string name, std::string rating)
 
     // if we havent returned, then movie hasnt already been added
     // add movie
-    movies_vec.push_back(Movie(name, rating, 0));
+    movies_vec.push_back(Movie(name, rating, watched));
     return true;
+}
+
+bool Movies::increment_watched(const std::string name)
+{
+    for (auto &movie : movies_vec)
+        if (movie.get_name() == name)
+        {
+            movie.increment_watched();
+            return true;
+        }
+
+    return false;
 }

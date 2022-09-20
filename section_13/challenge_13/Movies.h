@@ -21,7 +21,8 @@ public:
 
     // Public methods
     void display_movies() const;
-    bool add_movie(std::string name, std::string rating);
+    bool add_movie(const std::string name, const std::string rating, const int watched);
+    bool increment_watched(const std::string name);
 };
 
 #endif // _MOVIES_H_
