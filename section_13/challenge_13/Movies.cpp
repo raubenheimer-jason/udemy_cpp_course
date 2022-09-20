@@ -8,10 +8,7 @@ Movies::Movies() {}
 // Movies::Movies(const Movies::Movies &source) {}
 
 // Destructor
-Movies::~Movies()
-{
-    std::cout << "movies destructor" << std::endl;
-}
+Movies::~Movies() {}
 
 // Public methods
 void Movies::display_movies() const

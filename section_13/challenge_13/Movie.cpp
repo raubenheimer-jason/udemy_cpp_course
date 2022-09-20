@@ -10,10 +10,7 @@ Movie::Movie(const Movie &souce)
     : Movie{souce.name, souce.rating, souce.watched} {}
 
 // Destructor
-Movie::~Movie()
-{
-    std::cout << "movie destructor" << std::endl;
-}
+Movie::~Movie() {}
 
 // Public methods
 void Movie::display() const
