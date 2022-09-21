@@ -105,3 +105,9 @@ bool Mystring::operator==(const Mystring &rhs) const
 {
     return (std::strcmp(this->str, rhs.str) == 0);
 }
+
+// overloaded != operator
+bool Mystring::operator!=(const Mystring &rhs) const
+{
+    return this->str == rhs.str;
+}
