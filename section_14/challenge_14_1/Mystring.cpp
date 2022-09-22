@@ -131,7 +131,18 @@ Mystring Mystring::operator-()
     for (size_t i{}; i < len + 1; ++i)
         buff[i] = std::tolower(this->str[i]);
 
-    Mystring temp = Mystring{buff};
+    Mystring temp{buff};
+    delete[] buff;
+    return temp;
+}
+
+Mystring Mystring::operator+(const char *rhs)
+{
+    size_t len = strlen(this->str) + strlen(rhs) + 1;
+    char *buff = new char[len];
+    strcpy(buff, this->str);
+    strcat(buff, rhs);
+    Mystring temp{buff};
     delete[] buff;
     return temp;
 }
