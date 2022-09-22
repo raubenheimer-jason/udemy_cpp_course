@@ -28,6 +28,7 @@ public:
     Mystring operator+(const char *rhs);
     Mystring operator+=(const char *rhs);
     Mystring operator*(const int rhs);
+    Mystring operator*=(const int rhs);
 
     void display() const;
 

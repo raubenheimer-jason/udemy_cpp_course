@@ -11,6 +11,7 @@ using namespace std;
 int main()
 {
     cout << boolalpha << endl;
+    /*
     Mystring a{"frank"};
     Mystring b{"frank"};
 
@@ -40,10 +41,12 @@ int main()
     s1 = s2 * 3;
     cout << s1 << endl; // 123451234512345
 
-    /*
+    */
+
     Mystring s3{"abcdef"};
     s3 *= 5;
-    cout << s3 << endl;             // abcdefabcdefabcdefabcdefabcdef
+    cout << s3 << endl; // abcdefabcdefabcdefabcdefabcdef
+    /*
 
     Mystring s = "Frank";
     ++s;

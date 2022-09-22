@@ -155,7 +155,7 @@ Mystring Mystring::operator+=(const char *rhs)
 
 Mystring Mystring::operator*(const int rhs)
 {
-    size_t len = strlen(this->str) * 3 + 1;
+    size_t len = strlen(this->str) * rhs + 1;
     char *buff = new char[len];
     strcpy(buff, this->str);
     for (size_t i{}; i < rhs - 1; ++i)
@@ -163,4 +163,10 @@ Mystring Mystring::operator*(const int rhs)
     Mystring temp{buff};
     delete[] buff;
     return temp;
+}
+
+Mystring Mystring::operator*=(const int rhs)
+{
+    *this = *this * rhs;
+    return *this;
 }
