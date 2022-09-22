@@ -177,3 +177,8 @@ Mystring Mystring::operator++()
         this->str[i] = std::toupper(this->str[i]);
     return *this;
 }
+
+Mystring Mystring::operator++(int)
+{
+    return ++*this;
+}

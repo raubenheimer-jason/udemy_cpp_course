@@ -30,6 +30,7 @@ public:
     Mystring operator*(const int rhs);
     Mystring operator*=(const int rhs);
     Mystring operator++();
+    Mystring operator++(int);
 
     void display() const;
 

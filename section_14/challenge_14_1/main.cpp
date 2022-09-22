@@ -58,12 +58,12 @@ int main()
     result = ++s;
     cout << s << endl;      // FRANK
     cout << result << endl; // FRANK
-    /*
 
     s = "Frank";
     s++;
-    cout << s << endl;                  // FRANK
+    cout << s << endl; // FRANK
 
+    /*
     s = -s;
     cout << s << endl;                  // frank
     result = s++;
