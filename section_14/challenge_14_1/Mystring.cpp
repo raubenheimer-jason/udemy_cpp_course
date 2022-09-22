@@ -146,3 +146,9 @@ Mystring Mystring::operator+(const char *rhs)
     delete[] buff;
     return temp;
 }
+
+Mystring Mystring::operator+=(const char *rhs)
+{
+    *this = *this + rhs;
+    return *this;
+}
