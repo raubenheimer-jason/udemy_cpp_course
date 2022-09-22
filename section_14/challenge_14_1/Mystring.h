@@ -22,6 +22,8 @@ public:
 
     bool operator==(const Mystring &rhs) const;
     bool operator!=(const Mystring &rhs) const;
+    bool operator<(const Mystring &rhs) const;
+    bool operator>(const Mystring &rhs) const;
 
     void display() const;
 

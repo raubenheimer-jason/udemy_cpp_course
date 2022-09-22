@@ -103,13 +103,21 @@ std::istream &operator>>(std::istream &in, Mystring &rhs)
 // overloaded == operator
 bool Mystring::operator==(const Mystring &rhs) const
 {
-    std::cout << "----  " << this->str << " == " << rhs.str << std::endl;
     return (std::strcmp(this->str, rhs.str) == 0);
 }
 
 // overloaded != operator
 bool Mystring::operator!=(const Mystring &rhs) const
 {
-    std::cout << "---  " << this->str << " != " << rhs.str << std::endl;
     return (std::strcmp(this->str, rhs.str) != 0);
+}
+
+bool Mystring::operator<(const Mystring &rhs) const
+{
+    return (std::strcmp(this->str, rhs.str) < 0);
+}
+
+bool Mystring::operator>(const Mystring &rhs) const
+{
+    return (std::strcmp(this->str, rhs.str) > 0);
 }
