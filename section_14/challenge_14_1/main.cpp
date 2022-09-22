@@ -45,20 +45,20 @@ int main()
     Mystring s3{"abcdef"};
     s3 *= 5;
     cout << s3 << endl; // abcdefabcdefabcdefabcdefabcdef
-    */
 
+    */
     Mystring s = "Frank";
     ++s;
     cout << s << endl; // FRANK
 
-    /*
     s = -s;
-    cout << s << endl;                  // frank
+    cout << s << endl; // frank
 
     Mystring result;
     result = ++s;
-    cout << s << endl;                  // FRANK
-    cout << result << endl;           // FRANK
+    cout << s << endl;      // FRANK
+    cout << result << endl; // FRANK
+    /*
 
     s = "Frank";
     s++;
