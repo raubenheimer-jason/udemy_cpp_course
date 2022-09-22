@@ -132,19 +132,20 @@ Mystring operator-(const Mystring &obj)
     return temp;
 }
 
-Mystring operator+(const Mystring &obj, const char *str)
+Mystring operator+(const Mystring &obj, const Mystring &rhs)
 {
-    char *buff = new char[std::strlen(obj.str) + std::strlen(str) + 1];
+    char *buff = new char[std::strlen(obj.str) + std::strlen(rhs.str) + 1];
     std::strcpy(buff, obj.str);
-    std::strcat(buff, str);
+    std::strcat(buff, rhs.str);
     Mystring temp{buff};
     delete[] buff;
     return temp;
 }
 
-void operator+=(Mystring &obj, const char *str)
+Mystring &operator+=(Mystring &obj, const Mystring &rhs)
 {
-    obj = obj + str;
+    obj = obj + rhs;
+    return obj;
 }
 
 Mystring operator*(const Mystring &obj, const int n)
@@ -155,13 +156,14 @@ Mystring operator*(const Mystring &obj, const int n)
     return temp;
 }
 
-void operator*=(Mystring &obj, const int n)
+Mystring &operator*=(Mystring &obj, const int n)
 {
     obj = obj * n;
+    return obj;
 }
 
 // pre-increment -> make toupper
-Mystring operator++(Mystring &obj)
+Mystring &operator++(Mystring &obj)
 {
     for (size_t i{}; i < std::strlen(obj.str); ++i)
         obj.str[i] = std::toupper(obj.str[i]);
@@ -171,7 +173,8 @@ Mystring operator++(Mystring &obj)
 // post-increment
 Mystring operator++(Mystring &obj, int)
 {
-    Mystring temp = obj; // to return old value
-    obj = operator++(obj);
+    Mystring temp{obj}; // to return old value
+    // obj = operator++(obj);
+    ++obj;
     return temp;
 }
