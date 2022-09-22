@@ -144,7 +144,34 @@ Mystring operator+(const Mystring &obj, const char *str)
 
 void operator+=(Mystring &obj, const char *str)
 {
+    obj = obj + str;
+}
+
+Mystring operator*(const Mystring &obj, const int n)
+{
     Mystring temp;
-    temp = obj + str;
-    obj = temp;
+    for (size_t i{}; i < n; ++i)
+        temp += obj.str;
+    return temp;
+}
+
+void operator*=(Mystring &obj, const int n)
+{
+    obj = obj * n;
+}
+
+// pre-increment -> make toupper
+Mystring operator++(Mystring &obj)
+{
+    for (size_t i{}; i < std::strlen(obj.str); ++i)
+        obj.str[i] = std::toupper(obj.str[i]);
+    return obj; // so it can be used in assignment
+}
+
+// post-increment
+Mystring operator++(Mystring &obj, int)
+{
+    Mystring temp = obj; // to return old value
+    obj = operator++(obj);
+    return temp;
 }

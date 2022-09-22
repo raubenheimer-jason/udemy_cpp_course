@@ -15,6 +15,10 @@ class Mystring
     friend Mystring operator-(const Mystring &obj);
     friend Mystring operator+(const Mystring &obj, const char *str);
     friend void operator+=(Mystring &obj, const char *str);
+    friend Mystring operator*(const Mystring &obj, const int n);
+    friend void operator*=(Mystring &obj, const int n);
+    friend Mystring operator++(Mystring &obj);      // pre-increment
+    friend Mystring operator++(Mystring &obj, int); // post-increment
 
 private:
     char *str; // pointer to a char[] that holds a C-style string
