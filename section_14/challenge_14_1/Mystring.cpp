@@ -57,8 +57,8 @@ Mystring &Mystring::operator=(const Mystring &rhs)
     if (this == &rhs)
         return *this;
     delete[] str;
-    str = new char[strlen(rhs.str) + 1];
-    strcpy(str, rhs.str);
+    str = new char[std::strlen(rhs.str) + 1];
+    std::strcpy(str, rhs.str);
     return *this;
 }
 
@@ -104,7 +104,7 @@ std::istream &operator>>(std::istream &in, Mystring &rhs)
 // overloaded == operator
 bool Mystring::operator==(const Mystring &rhs) const
 {
-    return (std::strcmp(this->str, rhs.str) == 0);
+    return (std::strcmp(this->str, rhs.str) == 0); // could have just used: str instead of this->str
 }
 
 // overloaded != operator
@@ -123,62 +123,71 @@ bool Mystring::operator>(const Mystring &rhs) const
     return (std::strcmp(this->str, rhs.str) > 0);
 }
 
-Mystring Mystring::operator-()
+Mystring Mystring::operator-() const
 {
-    size_t len = strlen(this->str);
-    char *buff = new char[len + 1];
-
-    for (size_t i{}; i < len + 1; ++i)
+    char *buff = new char[std::strlen(this->str) + 1];
+    for (size_t i{}; i < std::strlen(buff); ++i)
         buff[i] = std::tolower(this->str[i]);
-
     Mystring temp{buff};
     delete[] buff;
     return temp;
 }
 
-Mystring Mystring::operator+(const char *rhs)
+Mystring Mystring::operator+(const Mystring &rhs) const
 {
-    size_t len = strlen(this->str) + strlen(rhs) + 1;
-    char *buff = new char[len];
-    strcpy(buff, this->str);
-    strcat(buff, rhs);
+    char *buff = new char[std::strlen(this->str) + std::strlen(rhs.str) + 1];
+    std::strcpy(buff, this->str);
+    std::strcat(buff, rhs.str);
     Mystring temp{buff};
     delete[] buff;
     return temp;
 }
 
-Mystring Mystring::operator+=(const char *rhs)
+Mystring &Mystring::operator+=(const Mystring &rhs)
 {
     *this = *this + rhs;
     return *this;
 }
 
-Mystring Mystring::operator*(const int rhs)
+Mystring Mystring::operator*(const int rhs) const
 {
-    size_t len = strlen(this->str) * rhs + 1;
+    Mystring temp;
+    for (size_t i{}; i < rhs; ++i)
+        temp += *this;
+    return temp;
+
+    // Old method before seeing solution vvv
+    /*
+    size_t len = std::strlen(this->str) * rhs + 1;
     char *buff = new char[len];
-    strcpy(buff, this->str);
+    std::strcpy(buff, this->str);
     for (size_t i{}; i < rhs - 1; ++i)
-        strcat(buff, this->str);
+        std::strcat(buff, this->str);
     Mystring temp{buff};
     delete[] buff;
     return temp;
+    */
 }
 
-Mystring Mystring::operator*=(const int rhs)
+Mystring &Mystring::operator*=(const int rhs)
 {
     *this = *this * rhs;
     return *this;
 }
 
-Mystring Mystring::operator++()
+// pre-increment
+Mystring &Mystring::operator++()
 {
-    for (size_t i{}; i < strlen(this->str) + 1; ++i)
+    for (size_t i{}; i < std::strlen(this->str) + 1; ++i) // dont actually need the +1 becasue that's the null char
         this->str[i] = std::toupper(this->str[i]);
     return *this;
 }
 
+// post-increment
 Mystring Mystring::operator++(int)
 {
-    return ++*this;
+    // return ++*this; WRONG!! Need to return the old value for post-increment...
+    Mystring temp{*this}; // save old value to return
+    operator++();         // call pre-increment (changes the current Mystring object)
+    return temp;          // return old value
 }

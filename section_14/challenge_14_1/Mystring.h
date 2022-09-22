@@ -20,17 +20,17 @@ public:
     Mystring &operator=(const Mystring &rhs); // Copy assignment
     Mystring &operator=(Mystring &&rhs);      // Move assignment
 
-    bool operator==(const Mystring &rhs) const;
-    bool operator!=(const Mystring &rhs) const;
-    bool operator<(const Mystring &rhs) const;
-    bool operator>(const Mystring &rhs) const;
-    Mystring operator-();
-    Mystring operator+(const char *rhs);
-    Mystring operator+=(const char *rhs);
-    Mystring operator*(const int rhs);
-    Mystring operator*=(const int rhs);
-    Mystring operator++();
-    Mystring operator++(int);
+    bool operator==(const Mystring &rhs) const;    // equals
+    bool operator!=(const Mystring &rhs) const;    // not equals
+    bool operator<(const Mystring &rhs) const;     // less than
+    bool operator>(const Mystring &rhs) const;     // greater than
+    Mystring operator-() const;                    // make lowercase
+    Mystring operator+(const Mystring &rhs) const; // concatenate
+    Mystring &operator+=(const Mystring &rhs);     // concat and assign
+    Mystring operator*(const int rhs) const;       // repeat rhs times
+    Mystring &operator*=(const int rhs);           // repeat rhs times and assign
+    Mystring &operator++();                        // pre-increment
+    Mystring operator++(int);                      // post-increment
 
     void display() const;
 
