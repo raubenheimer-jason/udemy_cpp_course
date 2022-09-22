@@ -13,6 +13,8 @@ class Mystring
     friend bool operator<(const Mystring &lhs, const Mystring &rhs);
     friend bool operator>(const Mystring &lhs, const Mystring &rhs);
     friend Mystring operator-(const Mystring &obj);
+    friend Mystring operator+(const Mystring &obj, const char *str);
+    friend void operator+=(Mystring &obj, const char *str);
 
 private:
     char *str; // pointer to a char[] that holds a C-style string

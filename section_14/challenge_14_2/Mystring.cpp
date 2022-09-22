@@ -131,3 +131,20 @@ Mystring operator-(const Mystring &obj)
     delete[] buff;
     return temp;
 }
+
+Mystring operator+(const Mystring &obj, const char *str)
+{
+    char *buff = new char[std::strlen(obj.str) + std::strlen(str) + 1];
+    std::strcpy(buff, obj.str);
+    std::strcat(buff, str);
+    Mystring temp{buff};
+    delete[] buff;
+    return temp;
+}
+
+void operator+=(Mystring &obj, const char *str)
+{
+    Mystring temp;
+    temp = obj + str;
+    obj = temp;
+}
