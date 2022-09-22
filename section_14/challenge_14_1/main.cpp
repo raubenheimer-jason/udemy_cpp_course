@@ -41,17 +41,17 @@ int main()
     s1 = s2 * 3;
     cout << s1 << endl; // 123451234512345
 
-    */
 
     Mystring s3{"abcdef"};
     s3 *= 5;
     cout << s3 << endl; // abcdefabcdefabcdefabcdefabcdef
-    /*
+    */
 
     Mystring s = "Frank";
     ++s;
-    cout << s << endl;                  // FRANK
+    cout << s << endl; // FRANK
 
+    /*
     s = -s;
     cout << s << endl;                  // frank
 

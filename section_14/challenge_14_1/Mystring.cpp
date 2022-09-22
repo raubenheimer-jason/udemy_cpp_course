@@ -170,3 +170,9 @@ Mystring Mystring::operator*=(const int rhs)
     *this = *this * rhs;
     return *this;
 }
+
+void Mystring::operator++()
+{
+    for (size_t i{}; i < strlen(this->str) + 1; ++i)
+        this->str[i] = std::toupper(this->str[i]);
+}
