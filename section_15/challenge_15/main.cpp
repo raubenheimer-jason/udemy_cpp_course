@@ -37,6 +37,7 @@ int main()
         display(sav_accounts);
         deposit(sav_accounts, 1000);
         withdraw(sav_accounts, 2000);
+    */
 
     // Checking
 
@@ -44,32 +45,28 @@ int main()
     check_accounts.push_back(Checking_Account{});
     check_accounts.push_back(Checking_Account{"Pete"});
     check_accounts.push_back(Checking_Account{"Greg", 2000});
-    check_accounts.push_back(Checking_Account{"Alex", 5000, 3.0});
+    check_accounts.push_back(Checking_Account{"Alex", 5000});
 
     display(check_accounts);
     deposit(check_accounts, 1000);
     withdraw(check_accounts, 2000);
-
-    */
 
     // Trust
 
-    vector<Trust_Account> check_accounts;
-    // check_accounts.push_back(Trust_Account{});
-    // check_accounts.push_back(Trust_Account{"Sam"});
-    // check_accounts.push_back(Trust_Account{"Steve", 2000});
-    // check_accounts.push_back(Trust_Account{"Sophie", 5000, 3.0});
-    check_accounts.push_back(Trust_Account{"Sven", 5000, 3.0, 100.0});
+    vector<Trust_Account> trust_accounts;
+    trust_accounts.push_back(Trust_Account{});
+    trust_accounts.push_back(Trust_Account{"Sam", 30000});
+    trust_accounts.push_back(Trust_Account{"Steve", 2000, 5.0});
+    trust_accounts.push_back(Trust_Account{"Sophie", 5000, 4.0});
 
-    display(check_accounts);
+    display(trust_accounts);
 
-    deposit(check_accounts, 1000);
-    deposit(check_accounts, 6000);
+    deposit(trust_accounts, 1000);
+    deposit(trust_accounts, 3000);
 
-    withdraw(check_accounts, 2000);
-    withdraw(check_accounts, 2000);
-    withdraw(check_accounts, 2000);
-    withdraw(check_accounts, 2000); // this one should fail becuase it exceeds the max num per year
+    // this one should fail becuase it exceeds the max num per year
+    for (size_t i{}; i < 5; ++i)
+        withdraw(trust_accounts, 1000);
 
     return 0;
 }
