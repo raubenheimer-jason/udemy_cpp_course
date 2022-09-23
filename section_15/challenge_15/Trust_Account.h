@@ -16,17 +16,19 @@ private:
     static constexpr double def_deposit_bonus = 50.0;
     static constexpr double def_deposit_bonus_threshold = 5000.0;
     static constexpr size_t def_num_withdraw_limit = 3;
-    static constexpr double def_withdraw_limit_percent = 20.0;
+    static constexpr double def_withdraw_limit_percent = 0.2;
 
 protected:
     double deposit_bonus;
     size_t num_withdraw_limit;
     double withdraw_limit_percent;
+    size_t num_withdrawls;
 
 public:
     Trust_Account(std::string name = def_name, double balance = def_balance, double int_rate = def_int_rate, double deposit_bonus = def_deposit_bonus);
 
     bool deposit(double amount);
+    bool withdraw(double amount);
 };
 
 #endif // _TRUST_ACCOUNT_H_
